@@ -89,9 +89,8 @@ inner join (
 on nr.director = m.director
 where nr.country is null;
 ```
-
-	![Uploading Schema_Defination.png…]()
-
+		
+<img width="182" alt="#" src="https://github.com/snehil66/Netflix_Insights/assets/63927953/5ecc15b1-c3cc-4fe0-b30e-531f6740e70d">
 
 #### Detailed Analysis
 The analysis performed included several key metrics and insights:
