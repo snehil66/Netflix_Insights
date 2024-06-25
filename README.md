@@ -90,7 +90,7 @@ on nr.director = m.director
 where nr.country is null;
 ```
 
-<img width="182" alt="Schema_Defination" src="https://github.com/snehil66/Netflix_Insights/assets/63927953/389d4044-25cc-4137-8654-d0de1324f17f">
+	<img width="182" alt="Schema_Defination" src="https://github.com/snehil66/Netflix_Insights/assets/63927953/389d4044-25cc-4137-8654-d0de1324f17f">
 
 #### Detailed Analysis
 The analysis performed included several key metrics and insights:
@@ -107,9 +107,11 @@ The analysis performed included several key metrics and insights:
    group by nd.director
    having count(distinct n.type) > 1;
    ```
+	
+
    - **Insight**: Directors who have diversified their portfolio by creating both movies and TV shows were identified, aiding in understanding their versatility.
 
-2. **Country with Highest Number of Comedy Movies**:
+1. **Country with Highest Number of Comedy Movies**:
    - Identification of countries producing the highest number of comedy movies.
    ```sql
    select  nc.country, count(ng.genre) as Comedy_movies
@@ -120,9 +122,12 @@ The analysis performed included several key metrics and insights:
    group by nc.country
    order by Comedy_movies desc;
    ```
+	
+   	![1](https://github.com/snehil66/Netflix_Insights/assets/63927953/e46118c0-04f1-4446-9cfc-733203cda819)
+
    - **Metric**: The country with the highest number of comedy movies is identified for better market analysis.
 
-3. **Top Directors by Year**:
+2. **Top Directors by Year**:
    - Directors with the maximum number of movies released each year.
    ```sql
    with cte as (
@@ -141,7 +146,7 @@ The analysis performed included several key metrics and insights:
    ```
    - **Metric**: Year-wise top directors provide insights into trends and popularity over time.
 
-4. **Average Duration of Movies by Genre**:
+3. **Average Duration of Movies by Genre**:
    - Calculation of the average duration of movies across different genres.
    ```sql
    select ng.genre, avg(cast(REPLACE(duration, ' min', '') as int)) as avg_duration
@@ -152,7 +157,7 @@ The analysis performed included several key metrics and insights:
    ```
    - **Metric**: Understanding the average duration helps in content planning and user engagement strategies.
 
-5. **Directors Creating Both Comedy and Horror Movies**:
+4. **Directors Creating Both Comedy and Horror Movies**:
    - Identifying directors who have worked on both comedy and horror genres.
    ```sql
    select nd.director as director, 
