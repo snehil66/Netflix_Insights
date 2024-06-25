@@ -3,7 +3,7 @@
 ### Netflix Data Analysis Report
 
 #### Introduction
-The aim of this analysis is to provide insights into Netflix's content library using data extracted from Kaggle and loaded into MSSQL. The dataset includes information on movies and TV shows available on Netflix, including details such as title, director, cast, country, date added, release year, rating, duration, and genres. The analysis focuses on various aspects of the data, such as director contributions, genre distribution, country-specific content, and average duration of movies.
+This analysis aims to provide insights into Netflix's content library using data extracted from Kaggle and loaded into MSSQL. The dataset includes information on movies and TV shows on Netflix, including titles, director, cast, country, date added, release year, rating, duration, and genres. The analysis focuses on various aspects of the data, such as director contributions, genre distribution, country-specific content, and average duration of movies.
 
 #### Data Extraction and Loading
 The dataset was extracted from Kaggle and loaded into MSSQL using Python. The following steps were undertaken:
@@ -76,6 +76,20 @@ select show_id, trim(value) as genre
 into netflix_genre
 from netflix_raw
 cross apply string_split(listed_in, ',');
+
+-- Populate missing value in country and director columns
+insert into netflix_country
+select show_id, m.country
+from netflix_raw nr
+inner join (
+		select director, country
+		from netflix_director nd
+		inner join netflix_country nc
+		on nd.show_id = nc.show_id
+		group by director, country
+		)m
+on nr.director = m.director
+where nr.country is null;
 ```
 
 #### Detailed Analysis
