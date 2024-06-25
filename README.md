@@ -1,6 +1,4 @@
-# Netflix_Insights
-
-### Netflix Data Analysis Report
+## Netflix Data Analysis Report
 
 #### Introduction
 This analysis aims to provide insights into Netflix's content library using data extracted from Kaggle and loaded into MSSQL. The dataset includes information on movies and TV shows on Netflix, including titles, director, cast, country, date added, release year, rating, duration, and genres. The analysis focuses on various aspects of the data, such as director contributions, genre distribution, country-specific content, and average duration of movies.
