@@ -90,6 +90,8 @@ on nr.director = m.director
 where nr.country is null;
 ```
 
+<img width="182" alt="Schema_Defination" src="https://github.com/snehil66/Netflix_Insights/assets/63927953/389d4044-25cc-4137-8654-d0de1324f17f">
+
 #### Detailed Analysis
 The analysis performed included several key metrics and insights:
 
